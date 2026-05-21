@@ -1,0 +1,375 @@
+:root {
+  color: #182033;
+  background: #eef2f8;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 960px;
+  min-height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+button {
+  border: 0;
+  font: inherit;
+}
+
+.app-shell {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(91, 141, 239, 0.16), transparent 26rem),
+    radial-gradient(circle at 74% 12%, rgba(126, 87, 194, 0.15), transparent 24rem),
+    #eef2f8;
+}
+
+.workspace-panel {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px;
+  overflow: auto;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.eyebrow,
+.label {
+  margin: 0;
+  color: #69758c;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0;
+  color: #111827;
+  font-size: 34px;
+  line-height: 1;
+}
+
+h2 {
+  max-width: 720px;
+  margin-bottom: 16px;
+  color: #101827;
+  font-size: clamp(34px, 5vw, 58px);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+h3 {
+  margin-bottom: 8px;
+  color: #172033;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+}
+
+.hero-card,
+.repo-card,
+.content-placeholder {
+  border: 1px solid rgba(126, 139, 164, 0.24);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 24px 80px rgba(21, 28, 44, 0.08);
+  backdrop-filter: blur(18px);
+}
+
+.hero-card {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 34px;
+}
+
+.hero-copy p,
+.content-placeholder p {
+  max-width: 760px;
+  margin-bottom: 0;
+  color: #59657a;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.status-pill {
+  display: inline-flex;
+  margin-bottom: 18px;
+  padding: 8px 12px;
+  border: 1px solid rgba(83, 107, 164, 0.22);
+  border-radius: 999px;
+  color: #365489;
+  background: rgba(226, 234, 255, 0.84);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.primary-button,
+.secondary-button,
+.empty-terminal button {
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+}
+
+.primary-button {
+  flex: 0 0 auto;
+  min-width: 132px;
+  padding: 14px 20px;
+  border-radius: 16px;
+  color: #fff;
+  background: linear-gradient(135deg, #1c64f2, #7c3aed);
+  box-shadow: 0 16px 36px rgba(45, 88, 191, 0.28);
+  font-weight: 800;
+}
+
+.secondary-button {
+  padding: 10px 14px;
+  border: 1px solid rgba(103, 117, 143, 0.24);
+  border-radius: 14px;
+  color: #23304a;
+  background: rgba(255, 255, 255, 0.78);
+  font-weight: 700;
+}
+
+.primary-button:hover,
+.secondary-button:hover,
+.empty-terminal button:hover {
+  transform: translateY(-1px);
+}
+
+.repo-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px;
+}
+
+.repo-icon {
+  display: grid;
+  width: 68px;
+  height: 68px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 20px;
+  color: #fff;
+  background: linear-gradient(145deg, #111827, #334155);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.repo-details {
+  min-width: 0;
+}
+
+.repo-details code {
+  display: block;
+  overflow: hidden;
+  color: #61708a;
+  font-family: "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.content-placeholder {
+  min-height: 220px;
+  padding: 28px;
+}
+
+.terminal-panel {
+  position: relative;
+  display: flex;
+  flex: 0 0 460px;
+  width: 460px;
+  min-width: 0;
+  border-left: 1px solid rgba(126, 139, 164, 0.28);
+  background: #080d19;
+  transition:
+    flex-basis 220ms ease,
+    width 220ms ease;
+}
+
+.terminal-panel.collapsed {
+  flex-basis: 42px;
+  width: 42px;
+}
+
+.terminal-tab {
+  display: grid;
+  width: 42px;
+  flex: 0 0 42px;
+  place-items: center;
+  cursor: pointer;
+  color: #c8d4f4;
+  background: #0d1424;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.terminal-tab span {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.terminal-tab strong {
+  color: #7aa2f7;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.terminal-body {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  opacity: 1;
+  transition: opacity 160ms ease;
+}
+
+.terminal-panel.collapsed .terminal-body {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.terminal-header {
+  display: flex;
+  min-height: 62px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  color: #e5edff;
+  background: rgba(255, 255, 255, 0.035);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.terminal-header p {
+  margin: 0 0 2px;
+  font-weight: 900;
+}
+
+.terminal-header span {
+  display: block;
+  max-width: 260px;
+  overflow: hidden;
+  color: #8492b9;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.terminal-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #9aa8c8;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.terminal-status::before {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: currentColor;
+  content: "";
+}
+
+.terminal-status.ready {
+  color: #9ece6a;
+}
+
+.terminal-status.starting {
+  color: #e0af68;
+}
+
+.terminal-status.error {
+  color: #f7768e;
+}
+
+.terminal-host {
+  min-height: 0;
+  flex: 1;
+  padding: 12px 10px;
+}
+
+.terminal-host .xterm {
+  height: 100%;
+}
+
+.empty-terminal {
+  display: grid;
+  min-height: 0;
+  flex: 1;
+  place-items: center;
+  padding: 24px;
+  color: #9aa8c8;
+  text-align: center;
+}
+
+.empty-terminal button {
+  margin-top: 14px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  color: #08111f;
+  background: #d7e0ff;
+  font-weight: 800;
+}
+
+@media (max-width: 1120px) {
+  body {
+    min-width: 760px;
+  }
+
+  .workspace-panel {
+    padding: 22px;
+  }
+
+  .hero-card {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .terminal-panel.open {
+    flex-basis: 390px;
+    width: 390px;
+  }
+}
