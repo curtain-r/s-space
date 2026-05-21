@@ -22,7 +22,8 @@ function App() {
   const [terminalStatus, setTerminalStatus] = useState<"idle" | "starting" | "ready" | "closed" | "error">("idle");
   const terminalHostRef = useRef<HTMLDivElement | null>(null);
 
-  const repoName = repoPath?.split(/[\\/]/).filter(Boolean).at(-1) ?? "未选择仓库";
+  const repoPathParts = repoPath?.split(/[\\/]/).filter(Boolean) ?? [];
+  const repoName = repoPathParts.length > 0 ? repoPathParts[repoPathParts.length - 1] : "未选择仓库";
 
   const chooseRepository = useCallback(async () => {
     const selected = await open({

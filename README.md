@@ -17,6 +17,8 @@ npm install
 npm run tauri dev
 ```
 
+Rust 使用仓库内的 `rust-toolchain.toml` 自动选择 stable 工具链。Linux 开发机需要安装 Tauri 的系统依赖（WebKitGTK、GTK、rsvg 等）。
+
 当前 MVP 能力：
 
 1. 选择本地仓库目录。
